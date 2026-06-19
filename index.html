@@ -29,7 +29,7 @@
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 26px;
     line-height: 1.25;
     font-weight: normal;
     margin-bottom: 10px;
@@ -37,7 +37,7 @@
 
   .subtitle {
     font-family: 'Arial', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     color: #555;
     line-height: 1.5;
     margin-bottom: 20px;
@@ -67,7 +67,7 @@
     margin-bottom: 28px;
     flex-wrap: wrap;
     font-family: 'Arial', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     align-items: center;
   }
   .legend-item { display: flex; align-items: center; gap: 6px; }
@@ -86,7 +86,7 @@
 
   .lane-label {
     font-family: 'Arial', sans-serif;
-    font-size: 10.5px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -118,7 +118,7 @@
     border-radius: 3px;
     padding: 5px 9px;
     font-family: 'Arial', sans-serif;
-    font-size: 11.5px;
+    font-size: 13px;
     font-weight: 400;
     color: #fff;
     line-height: 1.25;
@@ -130,13 +130,13 @@
   .org-tile.support { background: rgba(39, 174, 96, 0.6); }
   .org-tile.unclear { background: rgba(187, 187, 187, 0.6); color: #444; }
 
-  .org-tile.lg { font-size: 12.5px; padding: 7px 12px; }
-  .org-tile.sm { font-size: 10.5px; padding: 4px 7px; font-weight: 500; }
+  .org-tile.lg { font-size: 14.5px; padding: 7px 12px; }
+  .org-tile.sm { font-size: 12px; padding: 4px 7px; font-weight: 500; }
 
   /* Union or industry body placed in a sector lane */
   .org-tile.body { box-shadow: 0 0 0 1.5px #000; }
 
-  .sub { display: block; font-size: 9.5px; font-weight: 400; opacity: 0.85; margin-top: 1px; }
+  .sub { display: block; font-size: 11px; font-weight: 400; opacity: 0.85; margin-top: 1px; }
 
   /* Tooltip */
   .org-tile[data-quote]:hover::after {
@@ -144,9 +144,10 @@
     position: absolute;
     left: 0;
     top: calc(100% + 5px);
-    background: #1a1a1a;
-    color: #fff;
-    font-size: 11px;
+    background: #fff;
+    color: #1a1a1a;
+    font-size: 13px;
+    border: 1px solid #ddd;
     font-weight: 400;
     font-style: italic;
     padding: 8px 10px;
@@ -188,15 +189,15 @@
     line-height: 1.6;
   }
   .footer {
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
-  .footer .note {
-    padding-right: 140px;
+  .footer-notes {
+    flex: 1;
   }
   .bd-logo {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    flex-shrink: 0;
     height: 28px;
     width: auto;
     opacity: 0.7;
@@ -206,8 +207,8 @@
 <body>
 
 <div class="chart-header">
-  <h1>From ports to supermarkets, big business united against the small-firm carve-out</h1>
-  <p class="subtitle">Around 80% of business and employer group submissions opposed or wanted significant changes to a provision exempting small firms (fewer than 20 workers) from most health and safety duties. The select committee proceeded anyway.</p>
+  <h1>From ports to supermarkets, businesses expressed concerns about the small firm carve-out</h1>
+  <p class="subtitle">Around 80% of business and employer group submissions opposed or wanted significant changes to a provision exempting small firms (fewer than 20 workers) from most health and safety duties. The Government is pressing ahead anyway.</p>
 </div>
 
 <div class="legend">
@@ -222,7 +223,7 @@
 <div class="swimlane">
   <div class="lane-label">Ports &amp;<br>Logistics</div>
   <div class="lane-body">
-    <span class="org-tile oppose lg" data-quote="A situation where some small PCBUs in a port environment are not subject to the same requirements as others has potential to cause confusion about accountability.">NZ Port Company CEO Group<span class="sub">All 13 ports</span></span>
+    <span class="org-tile oppose lg body" data-quote="A situation where some small PCBUs in a port environment are not subject to the same requirements as others has potential to cause confusion about accountability.">NZ Port Company CEO Group<span class="sub">All 13 ports</span></span>
     <span class="org-tile oppose body" data-quote="PIA does not support the proposed small-PCBU carve-out. Ports operate as integrated ecosystems where organisations of varying sizes work side-by-side.">Port Industry Association</span>
     <span class="org-tile oppose" data-quote="The proposal to carve out duties for small PCBUs will create complexity and is unlikely to deliver any safety benefit or reduced cost of compliance.">Port of Auckland</span>
     <span class="org-tile oppose" data-quote="The proposed carve-out for small PCBUs risks inconsistent obligations between organisations working side-by-side.">Port of Tauranga</span>
@@ -237,13 +238,14 @@
   <div class="lane-body">
     <span class="org-tile oppose lg" data-quote="We do not support the proposed small business provisions which are intended to limit businesses with fewer than 20 workers to managing only critical risks.">Fulton Hogan</span>
     <span class="org-tile oppose lg" data-quote="Reducing the obligations of one group of PCBUs based solely on size creates gaps in risk management and accountability. This simply transfers risk to larger PCBUs.">Breen Construction</span>
+    <span class="org-tile oppose lg" data-quote="Context affects the relevant critical controls for a particular critical risk — a two-tier system creates inconsistency across worksites where small and large PCBUs work side by side.">Downer New Zealand</span>
     <span class="org-tile oppose" data-quote="Without major changes to the small PCBU carve-out, we cannot support the Bill proceeding.">Classic Builders</span>
     <span class="org-tile oppose body" data-quote="Remove the small PCBU carve-out entirely. Differentiated support should come through guidance and tools, not reduced duties.">Civil Contractors NZ</span>
     <span class="org-tile oppose sm body" data-quote="Even very small businesses can undertake work that creates, contributes to, or is exposed to serious risk. Small does not mean low-risk in construction.">Site Safe NZ</span>
     <span class="org-tile oppose sm body" data-quote="Different obligations for small PCBUs and de-prioritisation of chronic risk are key concerns.">Construction Health &amp; Safety NZ</span>
-    <span class="org-tile oppose sm" data-quote="We are concerned about the proposed small PCBU carve-out and the risk of de-prioritising chronic, cumulative, and psychosocial harm.">Pipeline &amp; Civil</span>
-    <span class="org-tile cond" data-quote="Small PCBU status does not imply low risk in construction. Small PCBUs undertaking high-hazard work are expected to maintain robust controls.">Master Builders</span>
-    <span class="org-tile cond sm" data-quote="Clarification is required on how the small PCBU provisions will operate when a small PCBU works alongside larger ones on high-risk sites.">Master Plumbers</span>
+    <span class="org-tile oppose sm body" data-quote="We are concerned about the proposed small PCBU carve-out and the risk of de-prioritising chronic, cumulative, and psychosocial harm.">Pipeline &amp; Civil</span>
+    <span class="org-tile cond body" data-quote="Small PCBU status does not imply low risk in construction. Small PCBUs undertaking high-hazard work are expected to maintain robust controls.">Master Builders</span>
+    <span class="org-tile cond sm body" data-quote="Clarification is required on how the small PCBU provisions will operate when a small PCBU works alongside larger ones on high-risk sites.">Master Plumbers</span>
     <span class="org-tile unclear sm">Golden Homes</span>
   </div>
 </div>
@@ -265,16 +267,16 @@
   <div class="lane-label">Energy &amp;<br>Resources</div>
   <div class="lane-body">
     <span class="org-tile oppose lg" data-quote="The Bill potentially creates a two-tier health and safety system. Workers in NZ are already 60% more likely to be harmed at work than in Australia.">OMV New Zealand</span>
-    <span class="org-tile oppose" data-quote="The small business carve-out will be unworkable in complex workplaces such as mines and quarries where multiple small and large businesses work together.">NZ Minerals Council</span>
+    <span class="org-tile oppose body" data-quote="The small business carve-out will be unworkable in complex workplaces such as mines and quarries where multiple small and large businesses work together.">NZ Minerals Council</span>
     <span class="org-tile oppose" data-quote="Separate categorisation of small PCBUs and regular PCBUs is a key concern where overlapping duties exist.">OceanaGold</span>
-    <span class="org-tile oppose sm" data-quote="We do not support the proposal to introduce a two-tier system where businesses with fewer than 20 workers focus only on a subset of risks.">GasNZ</span>
+    <span class="org-tile oppose sm body" data-quote="We do not support the proposal to introduce a two-tier system where businesses with fewer than 20 workers focus only on a subset of risks.">GasNZ</span>
     <span class="org-tile oppose sm" data-quote="The small business carve-out—risk undermining the integrity of the shared duty model that underpins the Act.">Counties Energy</span>
     <span class="org-tile oppose sm body" data-quote="The carve-out for small PCBUs through a two-tier system is not supported. ~150,000 NZ businesses use hazardous substances, many of them SMEs.">Hazardous Substances Professionals NZ</span>
-    <span class="org-tile cond" data-quote="We oppose the two-tier system based on head count; we want a risk-based approach regardless of size in high-hazard supply chains.">Energy Resources Aotearoa</span>
+    <span class="org-tile cond body" data-quote="We oppose the two-tier system based on head count; we want a risk-based approach regardless of size in high-hazard supply chains.">Energy Resources Aotearoa</span>
     <span class="org-tile cond sm">3R Group</span>
     <span class="org-tile support sm" data-quote="Todd supports small PCBUs (fewer than 20 workers) being liable to identify and manage critical risks.">Todd Energy</span>
     <span class="org-tile unclear sm">Bathurst Resources</span>
-    <span class="org-tile unclear sm">Energy Trusts of New Zealand</span>
+    <span class="org-tile unclear sm body">Energy Trusts of New Zealand</span>
   </div>
 </div>
 
@@ -285,12 +287,12 @@
     <span class="org-tile oppose lg" data-quote="We do not support the carving out of health and safety responsibilities based on business size.">Cloudy Bay Vineyards</span>
     <span class="org-tile oppose body" data-quote="This is highly problematic for forestry contracting. Almost the entire contracting sector would be classified as small — ignoring complexity and risk.">Forest Industry Contractors</span>
     <span class="org-tile oppose sm body" data-quote="The DWU opposes the small business carve-out. Workers in small businesses should not be offered less protection than those in larger firms.">NZ Dairy Workers Union</span>
-    <span class="org-tile cond" data-quote="We support a simpler compliance framework for small PCBUs but consider a carve-out for small upstream PCBUs to be inappropriate — farmers rely on them.">Federated Farmers</span>
-    <span class="org-tile cond sm" data-quote="Critical risk and small PCBU concepts must be accompanied by greater detail within the legislation before implementation.">NZ Winegrowers</span>
-    <span class="org-tile cond sm" data-quote="We support the underlying intent but want to avoid narrowing management focus away from non-critical risks.">Wine Marlborough</span>
-    <span class="org-tile cond sm" data-quote="If small PCBUs must be accommodated they should still take a reasonably practicable approach to all risks, not just critical ones.">Forestry Industry Safety Council</span>
-    <span class="org-tile cond sm">NZ Plant Producers Inc</span>
-    <span class="org-tile support" data-quote="HortNZ supports the introduction of a small PCBU category that recognises the realities of seasonal fluctuations in horticulture.">Horticulture NZ</span>
+    <span class="org-tile cond body" data-quote="We support a simpler compliance framework for small PCBUs but consider a carve-out for small upstream PCBUs to be inappropriate — farmers rely on them.">Federated Farmers</span>
+    <span class="org-tile cond sm body" data-quote="Critical risk and small PCBU concepts must be accompanied by greater detail within the legislation before implementation.">NZ Winegrowers</span>
+    <span class="org-tile cond sm body" data-quote="We support the underlying intent but want to avoid narrowing management focus away from non-critical risks.">Wine Marlborough</span>
+    <span class="org-tile cond sm body" data-quote="If small PCBUs must be accommodated they should still take a reasonably practicable approach to all risks, not just critical ones.">Forestry Industry Safety Council</span>
+    <span class="org-tile cond sm body">NZ Plant Producers Inc</span>
+    <span class="org-tile support body" data-quote="HortNZ supports the introduction of a small PCBU category that recognises the realities of seasonal fluctuations in horticulture.">Horticulture NZ</span>
     <span class="org-tile support sm" data-quote="Matariki Forestry Group is mostly supportive of the proposed changes — over 80% of our contractors employ fewer than 20 people.">Matariki Forestry</span>
     <span class="org-tile support sm">Ravensdown</span>
     <span class="org-tile cond sm">Ballance</span>
@@ -339,12 +341,14 @@
 
 
 <div class="footer">
-  <p class="note">
-    <strong>Source:</strong> Submissions on the Health and Safety at Work Amendment Bill. <strong>Graphic:</strong> Sapeer Mayron/BusinessDesk.
-  </p>
-  <p class="note" style="margin-top: 6px; border-top: none; padding-top: 0;">
-    <strong>Notes:</strong> Based on analysis of 64 unique submissions from businesses, employer organisations, unions, and worker advocates to the Education and Workforce Select Committee, March 2026. Excludes individual/citizen submissions and duplicate filings. "Wanted significant changes" = submissions that supported the Bill's overall direction but called for the small business carve-out to be amended or removed. Hover over tiles for submission quotes. Tile length reflects the size and prominence of the organisation within its sector.
-  </p>
+  <div class="footer-notes">
+    <p class="note">
+      <strong>Source:</strong> Submissions on the Health and Safety at Work Amendment Bill. <strong>Graphic:</strong> Sapeer Mayron, Rachel Pannett/BusinessDesk.
+    </p>
+    <p class="note" style="margin-top: 6px; border-top: none; padding-top: 0;">
+      <strong>Notes:</strong> Based on analysis of 64 unique submissions from businesses, employer organisations, unions, and worker advocates to the Education and Workforce Select Committee, March 2026. Excludes individual/citizen submissions and duplicate filings. "Wanted significant changes" = submissions that supported the Bill's overall direction but called for the small business carve-out to be amended or removed. Hover over tiles for submission quotes. Tile length reflects the size and prominence of the organisation within its sector.
+    </p>
+  </div>
   <img src="bd-logo.webp" class="bd-logo" alt="BusinessDesk">
 </div>
 
