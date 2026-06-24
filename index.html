@@ -139,11 +139,9 @@
   .sub { display: block; font-size: 11px; font-weight: 400; opacity: 0.85; margin-top: 1px; }
 
   /* Tooltip */
-  .org-tile[data-quote]:hover::after {
-    content: "\201C" attr(data-quote) "\201D";
-    position: absolute;
-    left: 0;
-    top: calc(100% + 5px);
+  #bd-tooltip {
+    display: none;
+    position: fixed;
     background: #fff;
     color: #1a1a1a;
     font-size: 13px;
@@ -154,7 +152,8 @@
     border-radius: 3px;
     white-space: normal;
     width: 270px;
-    z-index: 20;
+    max-width: calc(100vw - 16px);
+    z-index: 9999;
     line-height: 1.5;
     pointer-events: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
@@ -356,12 +355,78 @@
 </div>
 
 
+<div id="bd-tooltip"></div>
 <script>
   function sendHeight() {
     window.parent.postMessage({ iframeHeight: document.body.scrollHeight }, '*');
   }
   window.addEventListener('load', sendHeight);
   window.addEventListener('resize', sendHeight);
+
+  (function () {
+    var tip = document.getElementById('bd-tooltip');
+    var GAP = 6;
+    var TIP_W = 270;
+
+    function showTip(tile, clientX, clientY) {
+      var quote = tile.getAttribute('data-quote');
+      if (!quote) return;
+      tip.textContent = '“' + quote + '”';
+      tip.style.display = 'block';
+      positionTip(clientX, clientY);
+    }
+
+    function positionTip(clientX, clientY) {
+      var vw = window.innerWidth;
+      var vh = window.innerHeight;
+      tip.style.left = '';
+      tip.style.right = '';
+      tip.style.top = '';
+      tip.style.bottom = '';
+
+      // Horizontal: prefer left-aligned to cursor, flip if it would overflow
+      var leftPos = clientX;
+      if (leftPos + TIP_W + GAP > vw) {
+        leftPos = Math.max(8, vw - TIP_W - 8);
+      }
+      tip.style.left = leftPos + 'px';
+
+      // Vertical: prefer below cursor, flip above if needed
+      var tipH = tip.offsetHeight || 80;
+      var topPos = clientY + GAP;
+      if (topPos + tipH > vh) {
+        topPos = clientY - tipH - GAP;
+      }
+      tip.style.top = Math.max(8, topPos) + 'px';
+    }
+
+    function hideTip() {
+      tip.style.display = 'none';
+    }
+
+    // Mouse
+    document.querySelectorAll('.org-tile[data-quote]').forEach(function (tile) {
+      tile.addEventListener('mouseenter', function (e) {
+        showTip(tile, e.clientX, e.clientY);
+      });
+      tile.addEventListener('mousemove', function (e) {
+        if (tip.style.display !== 'none') positionTip(e.clientX, e.clientY);
+      });
+      tile.addEventListener('mouseleave', hideTip);
+
+      // Touch
+      tile.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        var t = e.touches[0];
+        showTip(tile, t.clientX, t.clientY);
+      }, { passive: false });
+    });
+
+    // Tap outside to dismiss on touch
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('.org-tile')) hideTip();
+    });
+  })();
 </script>
 </body>
 </html>
